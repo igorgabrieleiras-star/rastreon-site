@@ -573,6 +573,35 @@ section{padding-block:var(--section);position:relative}
   .js .mao-card img,.js .mao-card .mao-shade,.js .mao-card .mao-copy>*{opacity:1!important;transform:none!important}
 }
 
+/* ---------- Empresas que confiam ---------- */
+.clientes{margin-top:clamp(64px,8vw,104px);position:relative}
+.clientes .section-head{margin-bottom:clamp(24px,3vw,36px)}
+.cli-panel{position:relative;overflow:hidden;isolation:isolate;background:var(--navy);border-radius:var(--radius-lg);padding:clamp(22px,4vw,48px);display:grid;gap:clamp(20px,3vw,32px);box-shadow:0 30px 60px -32px rgba(22,29,80,.6)}
+.cli-panel .wm{right:-30px;bottom:-40px;width:clamp(160px,20vw,240px);color:rgba(220,228,250,.09)}
+.cli-panel .curves{left:-140px;top:-60px;width:440px;aspect-ratio:640/420;z-index:-1}
+.cli-grid{display:grid;gap:12px}
+.cli{display:grid;place-items:center;background:var(--white);border-radius:var(--radius);min-height:116px;padding:20px 24px;box-shadow:0 10px 24px -14px rgba(10,15,50,.55);transition:transform var(--t-base) var(--ease),box-shadow var(--t-base) var(--ease)}
+.cli img{width:auto;max-width:min(190px,78%);max-height:70px;object-fit:contain}
+.cli--honda img{max-height:30px}
+.cli:active{transform:scale(.98)}
+@media (hover:hover){.cli:hover{transform:translateY(-4px);box-shadow:0 18px 32px -14px rgba(10,15,50,.6)}}
+.cli-msg{display:flex;align-items:center;gap:14px;color:var(--white);font-family:var(--font-display);font-weight:600;font-size:clamp(1.1rem,1rem + .6vw,1.45rem);letter-spacing:-.01em;line-height:1.25}
+.cli-msg .ic{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.12);display:grid;place-items:center;flex-shrink:0;color:var(--ice)}
+.cli-msg .ic .lucide{width:22px;height:22px}
+@media (min-width:600px){.cli-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.cli{min-height:132px}}
+@media (min-width:1024px){.cli-panel{grid-template-columns:minmax(0,1fr) minmax(0,.42fr);align-items:center}.cli-msg{padding-left:8px}}
+/* entrada sequencial */
+.js .cli-panel{clip-path:inset(0 0 100% 0 round var(--radius-lg))}
+.js .cli-panel .cli,.js .cli-panel .cli-msg{opacity:0;transform:translateY(var(--rise))}
+.js .cli-panel.in{clip-path:inset(0 0 0 0 round var(--radius-lg));transition:clip-path .9s var(--ease)}
+.js .cli-panel.in .cli,.js .cli-panel.in .cli-msg{opacity:1;transform:none;transition:opacity var(--t-base) var(--ease),transform .7s var(--ease)}
+.js .cli-panel.in .cli:nth-child(1){transition-delay:.45s}
+.js .cli-panel.in .cli:nth-child(2){transition-delay:.6s}
+.js .cli-panel.in .cli:nth-child(3){transition-delay:.75s}
+.js .cli-panel.in .cli-msg{transition-delay:.95s}
+@media (hover:hover){.js .cli-panel.in .cli:hover{transform:translateY(-4px);transition-delay:0s}}
+@media (prefers-reduced-motion:reduce){.js .cli-panel{clip-path:none}.js .cli-panel .cli,.js .cli-panel .cli-msg{opacity:1!important;transform:none!important}}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -783,6 +812,23 @@ section{padding-block:var(--section);position:relative}
         </figcaption>
       </figure>
       <p class="mao-credit">Foto: <a href="https://unsplash.com/photos/birds-eye-view-photography-of-cityscape-during-golden-hour-Bon37uihsec" target="_blank" rel="noopener noreferrer">Tadeu Jnr / Unsplash</a></p>
+      <div class="clientes" id="clientes">
+        <div class="section-head reveal">
+          <span class="eyebrow">Clientes</span>
+          <h2 id="cli-title">Empresas que confiam na RastreOn</h2>
+          <p>Tecnologia e segurança para quem movimenta negócios.</p>
+        </div>
+        <div class="cli-panel reveal-stage" aria-labelledby="cli-title">
+          <svg class="curves draw draw-on-view" viewBox="0 0 640 420" aria-hidden="true" focusable="false" style="--grad:url(#g-dark)"><path pathLength="1" style="--i:0" d="M0 300 C220 300 320 40 640 60"/><path pathLength="1" style="--i:1" d="M0 313 C220 313 320 53 640 73"/><path pathLength="1" style="--i:2" d="M0 326 C220 326 320 66 640 86"/><path pathLength="1" style="--i:3" d="M0 339 C220 339 320 79 640 99"/></svg>
+          <svg class="wm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg>
+          <ul class="cli-grid">
+            <li class="cli cli--honda"><img src="logos/honda.png" width="384" height="60" alt="Honda" loading="lazy" decoding="async"></li>
+            <li class="cli"><img src="logos/lsl.png" width="365" height="112" alt="LSL Transportes" loading="lazy" decoding="async"></li>
+            <li class="cli"><img src="logos/rr.png" width="381" height="264" alt="RR Transportes Ltda." loading="lazy" decoding="async"></li>
+          </ul>
+          <p class="cli-msg"><span class="ic"><svg class="lucide" aria-hidden="true"><use href="#i-shield-lock"/></svg></span>Sua frota também merece essa segurança.</p>
+        </div>
+      </div>
     </div>
   </section>
 

@@ -21,6 +21,7 @@ COPY Caddyfile /etc/caddy/Caddyfile
 COPY index.html logo.png robots.txt sitemap.xml favicon.ico site.webmanifest /srv/
 COPY icons /srv/icons
 COPY fotos /srv/fotos
+COPY logos /srv/logos
 COPY --from=images /img /srv/img
 EXPOSE 8080
 CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
