@@ -16,7 +16,8 @@ RUN set -e; \
 # Etapa 2: servidor estático
 FROM caddy:2.8.4-alpine
 COPY Caddyfile /etc/caddy/Caddyfile
-COPY index.html logo.png robots.txt sitemap.xml /srv/
+COPY index.html logo.png robots.txt sitemap.xml favicon.ico site.webmanifest /srv/
+COPY icons /srv/icons
 COPY fotos /srv/fotos
 COPY --from=images /img /srv/img
 EXPOSE 8080

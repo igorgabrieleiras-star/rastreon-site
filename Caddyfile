@@ -8,9 +8,10 @@
 	encode zstd gzip
 	header X-Content-Type-Options nosniff
 	header Referrer-Policy strict-origin-when-cross-origin
-	@static path /logo.png /fotos/* /img/*
+	@static path /logo.png /fotos/* /img/* /icons/* /favicon.ico
 	header @static Cache-Control "public, max-age=604800"
 	header /index.html Cache-Control "public, max-age=300"
+	header /site.webmanifest Content-Type "application/manifest+json"
 	try_files {path} /index.html
 	file_server
 }
