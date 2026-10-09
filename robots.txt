@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://site-production-6bcd.up.railway.app/sitemap.xml
