@@ -529,6 +529,50 @@ section{padding-block:var(--section);position:relative}
   .wm--mon{width:200px;left:auto;right:-50px;bottom:-30px}
 }
 
+/* ---------- Referência em Manaus ---------- */
+.manaus{background:var(--white);overflow:hidden;isolation:isolate}
+.curves--mao{right:-170px;top:-30px;width:520px;aspect-ratio:640/420;z-index:-1}
+.curves--mao2{left:-180px;bottom:-120px;width:520px;aspect-ratio:640/420;z-index:-1;transform:scaleX(-1);display:none}
+.mao-card{position:relative;margin:0;border-radius:var(--radius-lg);overflow:hidden;background:var(--night);box-shadow:0 30px 60px -30px rgba(22,29,80,.55)}
+.mao-card picture,.mao-card img{position:absolute;inset:0;width:100%;height:100%}
+.mao-card img{object-fit:cover;object-position:50% 40%}
+.mao-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(22,29,80,.95) 0%,rgba(31,40,102,.82) 45%,rgba(31,40,102,0) 78%)}
+.mao-copy{position:relative;display:block;padding:clamp(250px,68vw,380px) clamp(22px,5vw,48px) clamp(26px,5vw,48px);color:var(--white)}
+.mao-copy .eyebrow{color:var(--ice)}
+.mao-copy .eyebrow::before{background:linear-gradient(90deg,var(--ice),rgba(180,198,255,.2))}
+.mao-title{margin-top:14px;font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;line-height:1}
+.mao-title .pre{display:block;font-size:clamp(1rem,.9rem + .6vw,1.35rem);letter-spacing:.24em;font-weight:600;color:rgba(255,255,255,.86)}
+.mao-title .city{display:inline-block;padding-right:.04em;margin-top:6px;font-size:clamp(3.1rem,1.6rem + 7vw,6.4rem);font-weight:800;letter-spacing:.02em;background:linear-gradient(180deg,#FFFFFF 30%,#C9D6FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mao-sub{margin-top:14px;font-size:clamp(.78rem,.74rem + .2vw,.9rem);font-weight:700;letter-spacing:.16em;color:var(--ice)}
+.mao-desc{margin-top:16px;max-width:46ch;color:rgba(255,255,255,.86);font-size:var(--fs-lead)}
+.mao-credit{margin-top:10px;text-align:right;font-size:.74rem;color:var(--muted)}
+.mao-credit a{color:inherit}
+.mao-pin{position:absolute;top:16px;left:16px;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.95);color:var(--navy-deep);font-size:.76rem;font-weight:700;padding:6px 12px 6px 8px;border-radius:999px}
+.mao-pin svg{width:16px;height:16px;color:var(--royal)}
+@media (min-width:760px){
+  .mao-card{aspect-ratio:4/3}
+  .mao-shade{background:linear-gradient(90deg,rgba(22,29,80,.92) 0%,rgba(31,40,102,.72) 34%,rgba(31,40,102,0) 62%)}
+  .mao-copy{position:absolute;left:0;top:0;bottom:0;width:min(620px,64%);padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+  .mao-title .city{font-size:min(6rem,7.2vw)}
+  .curves--mao2{display:block}
+}
+@media (min-width:960px){.mao-card{aspect-ratio:16/10}}
+@media (min-width:1100px){.mao-card{aspect-ratio:21/9}}
+/* entrada coordenada */
+.js .mao-card .mao-shade,.js .mao-card .mao-copy>*{opacity:0}
+.js .mao-card img{opacity:0;transform:scale(1.04)}
+.js .mao-card.in img{opacity:1;transform:none;transition:opacity .9s var(--ease),transform 1.6s var(--ease)}
+.js .mao-card.in .mao-shade{opacity:1;transition:opacity .9s var(--ease) .35s}
+.js .mao-card .mao-copy>*{transform:translateY(var(--rise))}
+.js .mao-card.in .mao-copy>*{opacity:1;transform:none;transition:opacity var(--t-base) var(--ease),transform .75s var(--ease)}
+.js .mao-card.in .mao-copy>:nth-child(1){transition-delay:.55s}
+.js .mao-card.in .mao-copy>:nth-child(2){transition-delay:.7s}
+.js .mao-card.in .mao-copy>:nth-child(3){transition-delay:.85s}
+.js .mao-card.in .mao-copy>:nth-child(4){transition-delay:1s}
+@media (prefers-reduced-motion:reduce){
+  .js .mao-card img,.js .mao-card .mao-shade,.js .mao-card .mao-copy>*{opacity:1!important;transform:none!important}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -716,6 +760,29 @@ section{padding-block:var(--section);position:relative}
         <li class="pilar" style="--d:150ms"><span class="ic"><svg class="lucide" aria-hidden="true"><use href="#i-shield"/></svg></span><strong>Segurança</strong><span class="t">Recursos voltados à proteção patrimonial e operacional.</span></li>
         <li class="pilar" style="--d:300ms"><span class="ic"><svg class="lucide clock" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path class="hand" d="M12 7v5l3 2"/></svg></span><strong>Monitoramento 24h</strong><span class="t">Estrutura de monitoramento e atendimento telefônico 24 horas.</span></li>
       </ul>
+    </div>
+  </section>
+
+  <!-- ===== 3b. REFERÊNCIA EM MANAUS ===== -->
+  <section class="manaus" id="manaus" aria-labelledby="mao-title">
+    <svg class="curves curves--mao draw draw-on-view" viewBox="0 0 640 420" aria-hidden="true" focusable="false" style="--grad:url(#g-light)"><path pathLength="1" style="--i:0" d="M0 330 C170 330 230 200 340 190 S540 70 640 80"/><path pathLength="1" style="--i:1" d="M0 343 C170 343 230 213 340 203 S540 83 640 93"/><path pathLength="1" style="--i:2" d="M0 356 C170 356 230 226 340 216 S540 96 640 106"/><path pathLength="1" style="--i:3" d="M0 369 C170 369 230 239 340 229 S540 109 640 119"/></svg>
+    <svg class="curves curves--mao2 draw draw-on-view" viewBox="0 0 640 420" aria-hidden="true" focusable="false" style="--grad:url(#g-light)"><path pathLength="1" style="--i:0" d="M0 330 C170 330 230 200 340 190 S540 70 640 80"/><path pathLength="1" style="--i:1" d="M0 343 C170 343 230 213 340 203 S540 83 640 93"/><path pathLength="1" style="--i:2" d="M0 356 C170 356 230 226 340 216 S540 96 640 106"/><path pathLength="1" style="--i:3" d="M0 369 C170 369 230 239 340 229 S540 109 640 119"/></svg>
+    <div class="wrap">
+      <figure class="mao-card reveal-stage" id="mao-card">
+        <picture>
+          <source media="(min-width:760px)" srcset="img/manaus.webp">
+          <img src="img/manaus-m.webp" width="900" height="1125" alt="Vista aérea de Manaus ao pôr do sol, com prédios e a paisagem urbana da cidade" loading="lazy" decoding="async">
+        </picture>
+        <span class="mao-shade" aria-hidden="true"></span>
+        <span class="mao-pin"><svg class="lucide" aria-hidden="true"><use href="#i-map-pin"/></svg>Manaus, Amazonas</span>
+        <figcaption class="mao-copy">
+          <span class="eyebrow">RastreOn em Manaus</span>
+          <h2 class="mao-title" id="mao-title"><span class="pre">REFERÊNCIA EM</span><span class="city">MANAUS</span></h2>
+          <p class="mao-sub">EM RASTREAMENTO E MONITORAMENTO VEICULAR</p>
+          <p class="mao-desc">Em Manaus, a RastreOn oferece tecnologia, segurança e controle para quem precisa proteger veículos e acompanhar frotas com confiança.</p>
+        </figcaption>
+      </figure>
+      <p class="mao-credit">Foto: <a href="https://unsplash.com/photos/birds-eye-view-photography-of-cityscape-during-golden-hour-Bon37uihsec" target="_blank" rel="noopener noreferrer">Tadeu Jnr / Unsplash</a></p>
     </div>
   </section>
 
@@ -991,7 +1058,7 @@ section{padding-block:var(--section);position:relative}
   onScroll();
 
   /* Revelação ao rolar */
-  var revealEls = document.querySelectorAll(".reveal, .reveal-img, .draw-on-view");
+  var revealEls = document.querySelectorAll(".reveal, .reveal-img, .draw-on-view, .reveal-stage");
   function show(el) {
     el.classList.add("in");
     if (el.classList.contains("draw-on-view")) el.classList.add("go");

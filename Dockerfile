@@ -11,6 +11,8 @@ RUN set -e; \
   get cameras.webp     "$U/photo-1765959106936-851735565c12?w=800&h=600&fit=crop&q=70&fm=webp"; \
   get quinta-roda.webp "$U/photo-1788972013158-2e82e093b044?w=800&h=600&fit=crop&q=70&fm=webp"; \
   get tecnologia.webp  "$U/photo-1643686978040-beac9782e58b?w=1000&h=750&fit=crop&q=70&fm=webp"; \
+  get manaus.webp      "$U/photo-1520464399004-1f1e8e938bb3?w=2000&h=860&fit=crop&crop=entropy&q=72&fm=webp"; \
+  get manaus-m.webp    "$U/photo-1520464399004-1f1e8e938bb3?w=900&h=1125&fit=crop&crop=entropy&q=70&fm=webp"; \
   ls -la
 
 # Etapa 2: servidor estático
