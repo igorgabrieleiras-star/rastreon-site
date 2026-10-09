@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RastreOn — Rastreamento e Monitoramento Veicular 24 Horas</title>
 <meta name="description" content="RastreOn: rastreamento e monitoramento veicular 24 horas, gestão de frotas, câmeras automotivas e sistema de trava de quinta roda. Central 24 horas (92) 99136-7474.">
-<meta name="theme-color" content="#1F2866">
+<meta name="theme-color" content="#0E3150">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="RastreOn — Rastreamento e Monitoramento Veicular 24 Horas">
@@ -47,18 +47,18 @@
   color-scheme: light;
   /* Cor */
   --white:#FFFFFF;
-  --navy:#2E3B8A;          /* azul institucional da logomarca */
-  --navy-deep:#1F2866;     /* azul-escuro */
-  --night:#161D50;
-  --royal:#1E4FD6;         /* azul royal para ações */
-  --royal-hover:#1840B3;
-  --sky:#EEF2FD;
-  --sky-2:#DCE4FA;
-  --ice:#B4C6FF;
-  --mist:#F5F7FA;
-  --line:#E3E7EE;
-  --ink:#141A2E;
-  --muted:#5A6378;
+  --navy:#123B60;          /* azul institucional */
+  --navy-deep:#0E3150;     /* azul-escuro */
+  --night:#0A2742;
+  --royal:#1556A2;         /* azul royal */
+  --royal-hover:#114785;
+  --sky:#EDF6FB;
+  --sky-2:#DCEEF7;         /* azul-claro */
+  --ice:#A8D2EA;
+  --mist:#F4F9FC;
+  --line:#DFE8EF;
+  --ink:#11202F;
+  --muted:#526273;
   --ok:#14804A;
   /* Tipografia */
   --font-display:"Sora", "Segoe UI", system-ui, sans-serif;
@@ -78,7 +78,7 @@
   --radius-lg:22px;
   --radius:16px;
   --radius-sm:12px;
-  --shadow:0 1px 2px rgba(20,26,46,.04), 0 12px 32px -8px rgba(30,40,102,.12);
+  --shadow:0 1px 2px rgba(20,26,46,.04), 0 12px 32px -8px rgba(14,49,80,.12);
   /* Motion */
   --ease:cubic-bezier(.22,.61,.36,1);
   --t-fast:.25s;
@@ -161,7 +161,7 @@ section{padding-block:var(--section);position:relative}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 24px;border-radius:var(--radius-sm);font-family:var(--font-body);font-weight:700;font-size:1rem;text-decoration:none;border:0;cursor:pointer;transition:background var(--t-fast),color var(--t-fast),border-color var(--t-fast),box-shadow var(--t-fast),transform var(--t-fast) var(--ease);line-height:1.2;text-align:center;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .btn .lucide,.btn svg{width:20px;height:20px;flex-shrink:0}
 .btn:active{transform:scale(.97)}
-.btn-primary{background:var(--royal);color:var(--white);box-shadow:0 8px 20px -8px rgba(30,79,214,.55)}
+.btn-primary{background:var(--royal);color:var(--white);box-shadow:0 8px 20px -8px rgba(21,86,162,.55)}
 .btn-primary:hover{background:var(--royal-hover)}
 .btn-light{background:var(--white);color:var(--navy-deep)}
 .btn-light:hover{background:var(--sky)}
@@ -176,9 +176,7 @@ section{padding-block:var(--section);position:relative}
 
 /* ---------- Curvas: sistema gráfico ---------- */
 .curves{position:absolute;pointer-events:none;overflow:visible;height:auto}
-.curves path{fill:none;stroke-width:1.15;vector-effect:non-scaling-stroke}
-.curves .ca{stroke:var(--curve-a)}
-.curves .cb{stroke:var(--curve-b)}
+.curves path{fill:none;stroke:var(--grad);stroke-width:1.15;stroke-linecap:round}
 .drift{animation:drift 26s ease-in-out infinite alternate}
 @keyframes drift{from{translate:0 0}to{translate:-14px 8px}}
 /* revelação do traçado */
@@ -187,12 +185,12 @@ section{padding-block:var(--section);position:relative}
 @keyframes draw{to{stroke-dashoffset:0}}
 
 /* ---------- Hero ---------- */
-.hero{background:var(--navy-deep);color:var(--white);padding-block:clamp(28px,6vw,72px) 0;overflow:hidden;isolation:isolate;--curve-a:rgba(255,255,255,.16);--curve-b:rgba(180,198,255,.2)}
-.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(90% 70% at 0% 0%,#26318A 0%,transparent 60%),linear-gradient(180deg,var(--navy-deep),var(--night))}
+.hero{background:var(--navy-deep);color:var(--white);padding-block:clamp(28px,6vw,72px) 0;overflow:hidden;isolation:isolate;--curve-a:rgba(255,255,255,.16);--curve-b:rgba(168,210,234,.2)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(90% 70% at 0% 0%,#1A4E7E 0%,transparent 60%),linear-gradient(180deg,var(--navy-deep),var(--night))}
 .hero-grid{display:grid;gap:32px}
 .hero-copy{position:relative;z-index:1;padding-bottom:4px}
 .hero-brand{display:flex;align-items:center;gap:14px;font-family:var(--font-display);font-weight:700;font-size:.82rem;letter-spacing:.42em;color:var(--ice)}
-.hero-brand::after{content:"";flex:0 0 48px;height:1px;background:rgba(180,198,255,.5)}
+.hero-brand::after{content:"";flex:0 0 48px;height:1px;background:rgba(168,210,234,.5)}
 .hero h1{margin-top:18px;font-size:var(--fs-display);font-weight:700;line-height:1.06;letter-spacing:-.03em}
 .hero h1 .l{display:inline}
 .hero h1 .accent{color:inherit}
@@ -200,12 +198,13 @@ section{padding-block:var(--section);position:relative}
 .hero-actions{display:grid;gap:12px;margin-top:30px}
 .hero-media{position:relative;margin:0 calc(-1 * var(--gutter));aspect-ratio:4/3;overflow:hidden;background:var(--night)}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
-.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,29,80,.35) 0%,rgba(22,29,80,0) 35%,rgba(22,29,80,0) 70%,rgba(22,29,80,.45) 100%);pointer-events:none}
-.badge-24h{position:absolute;z-index:2;left:var(--gutter);top:16px;display:inline-flex;align-items:center;gap:10px;background:rgba(15,20,60,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);color:var(--white);font-size:.72rem;font-weight:700;letter-spacing:.14em;padding:9px 14px 9px 12px;border-radius:999px}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,39,66,.35) 0%,rgba(10,39,66,0) 35%,rgba(10,39,66,0) 70%,rgba(10,39,66,.45) 100%);pointer-events:none}
+.badge-24h{position:absolute;z-index:2;left:var(--gutter);top:16px;display:inline-flex;align-items:center;gap:10px;background:rgba(8,30,52,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);color:var(--white);font-size:.72rem;font-weight:700;letter-spacing:.14em;padding:9px 14px 9px 12px;border-radius:999px}
 .badge-24h .pulse{position:relative;width:8px;height:8px;border-radius:50%;background:#5BD08A}
 .badge-24h .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid #5BD08A;animation:pulse 2.8s var(--ease) infinite}
 @keyframes pulse{0%{transform:scale(.6);opacity:.8}100%{transform:scale(2);opacity:0}}
-.curves--hero{right:-6%;bottom:-2%;width:min(980px,150%);z-index:-1;aspect-ratio:640/420}
+.curves--hero{right:-130px;top:-62px;width:260px;z-index:-1;aspect-ratio:640/420}
+@media (min-width:600px){.curves--hero{right:-6%;top:auto;bottom:-2%;width:min(980px,150%)}}
 @media (min-width:600px){
   .hero h1 .l{display:block}
   .hero h1 .accent{color:var(--ice)}
@@ -220,7 +219,7 @@ section{padding-block:var(--section);position:relative}
   .hero h1{font-size:min(2.75rem,3.3vw)}
   .hero h1 .l{white-space:nowrap}
   .hero-media{aspect-ratio:auto;height:100%;border-radius:0;margin-right:calc(-1 * (var(--gutter) + max(0px, (100vw - var(--wrap)) / 2)))}
-  .hero-media::after{background:linear-gradient(90deg,rgba(22,29,80,.55) 0%,rgba(22,29,80,0) 28%),linear-gradient(0deg,rgba(22,29,80,.35),rgba(22,29,80,0) 30%)}
+  .hero-media::after{background:linear-gradient(90deg,rgba(10,39,66,.55) 0%,rgba(10,39,66,0) 28%),linear-gradient(0deg,rgba(10,39,66,.35),rgba(10,39,66,0) 30%)}
   .badge-24h{left:auto;right:28px;top:28px}
   .curves--hero{left:-14%;right:auto;bottom:-42%;width:min(900px,70%)}
 }
@@ -291,7 +290,7 @@ section{padding-block:var(--section);position:relative}
 
 /* Detalhe da solução */
 .sol-dialog{border:0;padding:0;border-radius:var(--radius-lg);width:min(720px,calc(100% - 32px));max-height:calc(100dvh - 48px);overflow:hidden;background:var(--white);color:var(--ink);box-shadow:0 40px 80px -24px rgba(0,0,0,.5)}
-.sol-dialog::backdrop{background:rgba(14,19,52,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.sol-dialog::backdrop{background:rgba(8,30,52,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
 .sol-dialog[open]{animation:dlg-in .5s var(--ease)}
 .sol-dialog[open]::backdrop{animation:fade .35s var(--ease)}
 .sol-dialog.closing{animation:dlg-out .28s var(--ease) forwards}
@@ -354,7 +353,7 @@ section{padding-block:var(--section);position:relative}
 }
 
 /* ---------- Monitoramento ---------- */
-.monitor{background:var(--night);color:var(--white);overflow:hidden;isolation:isolate;--curve-a:rgba(255,255,255,.1);--curve-b:rgba(180,198,255,.13)}
+.monitor{background:var(--night);color:var(--white);overflow:hidden;isolation:isolate;--curve-a:rgba(255,255,255,.1);--curve-b:rgba(168,210,234,.13)}
 .curves--mon{right:-180px;top:-60px;width:620px;z-index:-1;aspect-ratio:640/420}
 .monitor-grid{display:grid;gap:44px;align-items:center}
 .monitor .eyebrow{color:var(--ice)}
@@ -366,7 +365,7 @@ section{padding-block:var(--section);position:relative}
 .mon-points .ic{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:var(--ice);flex-shrink:0}
 .mon-points .ic .lucide{width:17px;height:17px}
 .monitor .btn{margin-top:30px}
-.map-card{margin:0;position:relative;border-radius:var(--radius-lg);overflow:hidden;background:#1A2463;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 30px 60px -28px rgba(0,0,0,.7)}
+.map-card{margin:0;position:relative;border-radius:var(--radius-lg);overflow:hidden;background:#0F3355;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 30px 60px -28px rgba(0,0,0,.7)}
 .map-card svg.map{display:block;width:100%;height:auto}
 .map-badge{position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.96);color:var(--navy-deep);border-radius:var(--radius-sm);padding:7px 12px 7px 7px;font-weight:700;font-size:.82rem;box-shadow:0 8px 20px rgba(0,0,0,.25)}
 .map-badge .ic{width:30px;height:30px;border-radius:8px;background:var(--navy);color:var(--white);display:grid;place-items:center}
@@ -375,7 +374,7 @@ section{padding-block:var(--section);position:relative}
 .map .grid line{stroke:rgba(255,255,255,.035);stroke-width:1}
 .map .road{fill:none;stroke:rgba(255,255,255,.075);stroke-width:9;stroke-linecap:round}
 .map .road-thin{fill:none;stroke:rgba(255,255,255,.05);stroke-width:3.5;stroke-linecap:round}
-.map .trip{fill:none;stroke:#86A6FF;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1 8}
+.map .trip{fill:none;stroke:#7FB6E0;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1 8}
 .map .trip-2{stroke:rgba(255,255,255,.5)}
 @media (min-width:960px){.monitor-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px}}
 
@@ -388,7 +387,7 @@ section{padding-block:var(--section);position:relative}
 .icon svg{width:22px;height:22px}
 .phone{font-family:var(--font-display);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.005em;user-select:all;white-space:nowrap}
 
-.central{display:grid;gap:26px;background:var(--navy);color:var(--white);border-radius:var(--radius-lg);padding:clamp(24px,4vw,48px);position:relative;overflow:hidden;isolation:isolate;--curve-a:rgba(255,255,255,.14);--curve-b:rgba(180,198,255,.13)}
+.central{display:grid;gap:26px;background:var(--navy);color:var(--white);border-radius:var(--radius-lg);padding:clamp(24px,4vw,48px);position:relative;overflow:hidden;isolation:isolate;--curve-a:rgba(255,255,255,.14);--curve-b:rgba(168,210,234,.13)}
 .curves--central{right:-90px;bottom:-110px;width:540px;z-index:-1;aspect-ratio:640/420}
 .central .top{display:flex;align-items:center;gap:14px}
 .central .icon{background:rgba(255,255,255,.12);color:var(--white)}
@@ -447,10 +446,10 @@ section{padding-block:var(--section);position:relative}
 @media (min-width:860px){.hours-pair{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.hp{padding:28px}}
 
 /* ---------- Localização ---------- */
-.location{background:linear-gradient(180deg,var(--mist) 0%,var(--sky) 100%);overflow:hidden;isolation:isolate;--curve-a:rgba(46,59,138,.2);--curve-b:rgba(30,79,214,.14)}
+.location{background:linear-gradient(180deg,var(--mist) 0%,var(--sky) 100%);overflow:hidden;isolation:isolate;--curve-a:rgba(18,59,96,.2);--curve-b:rgba(21,86,162,.14)}
 .curves--loc{left:-120px;top:-40px;width:min(720px,120%);z-index:-1;aspect-ratio:640/420}
 .location .wrap{display:grid;gap:32px;align-items:center}
-.facade{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;background:var(--sky-2);box-shadow:0 2px 4px rgba(20,26,46,.05),0 28px 56px -20px rgba(31,40,102,.35);aspect-ratio:1798/875;max-width:100%}
+.facade{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;background:var(--sky-2);box-shadow:0 2px 4px rgba(20,26,46,.05),0 28px 56px -20px rgba(14,49,80,.35);aspect-ratio:1798/875;max-width:100%}
 .facade img{width:100%;height:100%;object-fit:cover}
 .facade figcaption{position:absolute;left:12px;bottom:12px;display:none;align-items:center;gap:8px;background:rgba(255,255,255,.95);color:var(--navy-deep);font-size:.76rem;font-weight:700;padding:6px 12px 6px 8px;border-radius:999px}
 .facade figcaption svg{width:16px;height:16px;color:var(--royal)}
@@ -466,7 +465,7 @@ section{padding-block:var(--section);position:relative}
 @media (min-width:960px){.location .wrap{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:64px}}
 
 /* ---------- Rodapé ---------- */
-.footer{background:var(--white);padding-bottom:calc(32px + env(safe-area-inset-bottom,0px));--curve-a:rgba(46,59,138,.2)}
+.footer{background:var(--white);padding-bottom:calc(32px + env(safe-area-inset-bottom,0px));--curve-a:rgba(18,59,96,.2)}
 .footer-curve{display:block;width:100%;height:56px}
 .footer-curve path{fill:none;stroke-width:1.15;vector-effect:non-scaling-stroke}
 .footer-curve path:nth-child(1){stroke:var(--sky-2)}
@@ -498,6 +497,38 @@ section{padding-block:var(--section);position:relative}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);background:var(--navy-deep);color:var(--white);padding:12px 18px;border-radius:10px;font-weight:600;font-size:.92rem;opacity:0;pointer-events:none;transition:opacity var(--t-fast),transform var(--t-fast) var(--ease);z-index:80;max-width:calc(100% - 32px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
+
+/* ---------- Detalhes de direção de arte ---------- */
+.eyebrow::before{background:linear-gradient(90deg,var(--royal),var(--sky-2))}
+.monitor .eyebrow::before,.hero .eyebrow::before{background:linear-gradient(90deg,var(--ice),rgba(168,210,234,.2))}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--royal) 0%,#7FB6E0 45%,rgba(220,238,247,0) 100%);z-index:2}
+.wm{position:absolute;pointer-events:none;z-index:-1;height:auto;color:rgba(21,86,162,.075);fill:none;stroke:currentColor;stroke-width:.55;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.monitor .wm{color:rgba(220,238,247,.07)}
+.solucoes{overflow:hidden;isolation:isolate;background:linear-gradient(180deg,var(--white) 0%,var(--white) 78%,var(--sky) 100%)}
+.curves--sol{right:-120px;bottom:-110px;width:560px;aspect-ratio:640/420;z-index:-1;display:none}
+.sobre{background:var(--sky);overflow:hidden;isolation:isolate}
+.curves--sobre{right:-210px;top:4%;width:min(780px,64%);aspect-ratio:640/420;z-index:-1;display:none}
+.wm--sobre{left:-64px;top:24px;width:200px;display:none}
+.pilar .ic{background:var(--navy);color:var(--white);box-shadow:none}
+.pilar::before{background:rgba(18,59,96,.14)}
+.pilar::after{background:linear-gradient(90deg,var(--royal),#7FB6E0)}
+@media (hover:hover){.pilar:hover .ic{background:var(--royal);transform:translateY(-2px)}}
+.pilar .ic{transition:background var(--t-fast),transform var(--t-fast) var(--ease)}
+.wm--mon{right:-50px;bottom:-70px;width:clamp(220px,24vw,320px)}
+.atendimento{overflow:hidden;isolation:isolate}
+.horarios{position:relative;padding-top:clamp(48px,6vw,72px)}
+.horarios::before{content:"";position:absolute;left:-100vw;right:-100vw;top:0;bottom:calc(-1 * var(--section));background:var(--mist);border-top:1px solid var(--sky-2);z-index:-1}
+.hp--com{background:var(--white);box-shadow:inset 0 0 0 1px var(--sky-2)}
+.location{background:linear-gradient(180deg,var(--mist) 0%,var(--sky-2) 100%)}
+.footer-curve path:nth-child(1),.footer-curve path:nth-child(2){stroke:url(#g-light)}
+@media (min-width:960px){
+  .curves--sol,.curves--sobre,.wm--sobre{display:block}
+}
+@media (max-width:959px){
+  .curves--mon{width:300px;right:-150px;top:-90px}
+  .wm--mon{width:200px;left:auto;right:-50px;bottom:-30px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -512,7 +543,11 @@ section{padding-block:var(--section);position:relative}
 <script>document.documentElement.classList.add("js");</script>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="g-light" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#1556A2" stop-opacity=".6"/><stop offset=".55" stop-color="#1556A2" stop-opacity=".32"/><stop offset="1" stop-color="#DCEEF7" stop-opacity=".9"/></linearGradient>
+<linearGradient id="g-dark" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#DCEEF7" stop-opacity=".6"/><stop offset=".6" stop-color="#7FB6E0" stop-opacity=".26"/><stop offset="1" stop-color="#1556A2" stop-opacity=".18"/></linearGradient>
 <!-- Ícones (Lucide, licença ISC) -->
+<symbol id="i-shield-lock" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10.5 11V9.5a1.5 1.5 0 0 1 3 0V11"/></symbol>
+<symbol id="i-signal" viewBox="0 0 24 24"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></symbol>
 <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
 <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
 <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
@@ -561,7 +596,7 @@ section{padding-block:var(--section);position:relative}
 <main>
   <!-- ===== 1. HERO ===== -->
   <section class="hero" id="inicio" aria-labelledby="hero-title">
-    <svg class="curves curves--hero draw drift" viewBox="0 0 640 420" aria-hidden="true" focusable="false"><path class="ca" pathLength="1" style="--i:0" d="M0 300 C220 300 320 40 640 60"/><path class="cb" pathLength="1" style="--i:1" d="M0 314 C220 314 320 54 640 74"/><path class="ca" pathLength="1" style="--i:2" d="M0 328 C220 328 320 68 640 88"/><path class="cb" pathLength="1" style="--i:3" d="M0 342 C220 342 320 82 640 102"/><path class="ca" pathLength="1" style="--i:4" d="M0 356 C220 356 320 96 640 116"/><path class="cb" pathLength="1" style="--i:5" d="M0 370 C220 370 320 110 640 130"/><path class="ca" pathLength="1" style="--i:6" d="M0 384 C220 384 320 124 640 144"/><path class="cb" pathLength="1" style="--i:7" d="M0 398 C220 398 320 138 640 158"/><path class="ca" pathLength="1" style="--i:8" d="M0 412 C220 412 320 152 640 172"/></svg>
+    <svg class="curves curves--hero draw drift" viewBox="0 0 640 420" aria-hidden="true" focusable="false" style="--grad:url(#g-dark)"><path pathLength="1" style="--i:0" d="M0 300 C220 300 320 40 640 60"/><path pathLength="1" style="--i:1" d="M0 313 C220 313 320 53 640 73"/><path pathLength="1" style="--i:2" d="M0 326 C220 326 320 66 640 86"/><path pathLength="1" style="--i:3" d="M0 339 C220 339 320 79 640 99"/><path pathLength="1" style="--i:4" d="M0 352 C220 352 320 92 640 112"/></svg>
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <h1 id="hero-title">
@@ -583,6 +618,7 @@ section{padding-block:var(--section);position:relative}
 
   <!-- ===== 2. SOLUÇÕES ===== -->
   <section class="solucoes" id="solucoes" aria-labelledby="sol-title">
+    <svg class="curves curves--sol draw draw-on-view" viewBox="0 0 640 420" aria-hidden="true" focusable="false" style="--grad:url(#g-light)"><path pathLength="1" style="--i:0" d="M0 300 C220 300 320 40 640 60"/><path pathLength="1" style="--i:1" d="M0 313 C220 313 320 53 640 73"/><path pathLength="1" style="--i:2" d="M0 326 C220 326 320 66 640 86"/><path pathLength="1" style="--i:3" d="M0 339 C220 339 320 79 640 99"/></svg>
     <div class="wrap">
       <div class="section-head split reveal">
         <div>
@@ -662,6 +698,8 @@ section{padding-block:var(--section);position:relative}
 
   <!-- ===== 3. INSTITUCIONAL ===== -->
   <section class="sobre" id="sobre" aria-labelledby="sobre-title">
+    <svg class="curves curves--sobre draw draw-on-view drift" viewBox="0 0 640 420" aria-hidden="true" focusable="false" style="--grad:url(#g-light)"><path pathLength="1" style="--i:0" d="M0 330 C170 330 230 200 340 190 S540 70 640 80"/><path pathLength="1" style="--i:1" d="M0 344 C170 344 230 214 340 204 S540 84 640 94"/><path pathLength="1" style="--i:2" d="M0 358 C170 358 230 228 340 218 S540 98 640 108"/><path pathLength="1" style="--i:3" d="M0 372 C170 372 230 242 340 232 S540 112 640 122"/><path pathLength="1" style="--i:4" d="M0 386 C170 386 230 256 340 246 S540 126 640 136"/></svg>
+    <svg class="wm wm--sobre reveal" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg>
     <div class="wrap">
       <div class="sobre-top">
         <div class="sobre-copy reveal">
@@ -683,7 +721,8 @@ section{padding-block:var(--section);position:relative}
 
   <!-- ===== 4. MONITORAMENTO 24H ===== -->
   <section class="monitor" id="monitoramento" aria-labelledby="mon-title">
-    <svg class="curves curves--mon drift" viewBox="0 0 640 420" aria-hidden="true" focusable="false"><path class="ca" pathLength="1" style="--i:0" d="M0 300 C220 300 320 40 640 60"/><path class="cb" pathLength="1" style="--i:1" d="M0 314 C220 314 320 54 640 74"/><path class="ca" pathLength="1" style="--i:2" d="M0 328 C220 328 320 68 640 88"/><path class="cb" pathLength="1" style="--i:3" d="M0 342 C220 342 320 82 640 102"/><path class="ca" pathLength="1" style="--i:4" d="M0 356 C220 356 320 96 640 116"/><path class="cb" pathLength="1" style="--i:5" d="M0 370 C220 370 320 110 640 130"/><path class="ca" pathLength="1" style="--i:6" d="M0 384 C220 384 320 124 640 144"/></svg>
+    <svg class="curves curves--mon draw draw-on-view drift" viewBox="0 0 640 420" aria-hidden="true" focusable="false" style="--grad:url(#g-dark)"><path pathLength="1" style="--i:0" d="M0 330 C170 330 230 200 340 190 S540 70 640 80"/><path pathLength="1" style="--i:1" d="M0 343 C170 343 230 213 340 203 S540 83 640 93"/><path pathLength="1" style="--i:2" d="M0 356 C170 356 230 226 340 216 S540 96 640 106"/><path pathLength="1" style="--i:3" d="M0 369 C170 369 230 239 340 229 S540 109 640 119"/><path pathLength="1" style="--i:4" d="M0 382 C170 382 230 252 340 242 S540 122 640 132"/></svg>
+    <svg class="wm wm--mon reveal" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-shield-lock"/></svg>
     <div class="wrap monitor-grid">
       <div class="reveal">
         <span class="eyebrow">Monitoramento 24 horas</span>
@@ -710,22 +749,22 @@ section{padding-block:var(--section);position:relative}
           <path class="road-thin" d="M330 -20 C 320 80, 360 140, 300 190"/>
           <path id="trip-a" class="trip" d="M70 290 C 140 270, 190 200, 300 190 S 450 140, 520 110"/>
           <path id="trip-b" class="trip trip-2" d="M150 380 C 230 360, 330 330, 400 230"/>
-          <circle r="6" fill="#1E4FD6" stroke="#fff" stroke-width="2.5">
+          <circle r="6" fill="#1556A2" stroke="#fff" stroke-width="2.5">
             <animateMotion id="mv-a" dur="16s" repeatCount="indefinite" begin="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".45 0 .55 1"><mpath href="#trip-a"/></animateMotion>
           </circle>
           <circle r="4.5" fill="#fff" opacity=".9">
             <animateMotion id="mv-b" dur="12s" repeatCount="indefinite" begin="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".45 0 .55 1"><mpath href="#trip-b"/></animateMotion>
           </circle>
-          <g transform="translate(70 290)"><circle r="7" fill="#fff"/><circle r="3" fill="#2E3B8A"/></g>
+          <g transform="translate(70 290)"><circle r="7" fill="#fff"/><circle r="3" fill="#123B60"/></g>
           <g transform="translate(520 110)">
-            <circle r="10" fill="none" stroke="#86A6FF" stroke-width="1.5" opacity="0">
+            <circle r="10" fill="none" stroke="#7FB6E0" stroke-width="1.5" opacity="0">
               <animate id="ping-r" attributeName="r" values="8;26" dur="3.2s" repeatCount="indefinite" begin="indefinite"/>
               <animate id="ping-o" attributeName="opacity" values=".7;0" dur="3.2s" repeatCount="indefinite" begin="indefinite"/>
             </circle>
-            <path d="M0-34c-10 0-17 7-17 16 0 12 17 26 17 26s17-14 17-26c0-9-7-16-17-16z" fill="#fff"/><circle cy="-18" r="6" fill="#1E4FD6"/>
+            <path d="M0-34c-10 0-17 7-17 16 0 12 17 26 17 26s17-14 17-26c0-9-7-16-17-16z" fill="#fff"/><circle cy="-18" r="6" fill="#1556A2"/>
           </g>
-          <g transform="translate(400 230)"><path d="M0-28c-8 0-14 6-14 13 0 10 14 21 14 21s14-11 14-21c0-7-6-13-14-13z" fill="#B4C6FF"/><circle cy="-15" r="5" fill="#1F2866"/></g>
-          <g transform="translate(150 380)"><circle r="6" fill="#B4C6FF"/></g>
+          <g transform="translate(400 230)"><path d="M0-28c-8 0-14 6-14 13 0 10 14 21 14 21s14-11 14-21c0-7-6-13-14-13z" fill="#A8D2EA"/><circle cy="-15" r="5" fill="#0E3150"/></g>
+          <g transform="translate(150 380)"><circle r="6" fill="#A8D2EA"/></g>
         </svg>
         <div class="map-badge"><span class="ic"><svg class="lucide" aria-hidden="true"><use href="#i-headset"/></svg></span>Monitoramento 24 horas</div>
         <figcaption>Representação ilustrativa</figcaption>
@@ -748,7 +787,7 @@ section{padding-block:var(--section);position:relative}
       </div>
 
       <article class="central reveal" id="central-24h" aria-labelledby="central-title">
-        <svg class="curves curves--central" viewBox="0 0 640 420" aria-hidden="true" focusable="false"><path class="ca" pathLength="1" style="--i:0" d="M0 300 C220 300 320 40 640 60"/><path class="cb" pathLength="1" style="--i:1" d="M0 314 C220 314 320 54 640 74"/><path class="ca" pathLength="1" style="--i:2" d="M0 328 C220 328 320 68 640 88"/><path class="cb" pathLength="1" style="--i:3" d="M0 342 C220 342 320 82 640 102"/><path class="ca" pathLength="1" style="--i:4" d="M0 356 C220 356 320 96 640 116"/><path class="cb" pathLength="1" style="--i:5" d="M0 370 C220 370 320 110 640 130"/><path class="ca" pathLength="1" style="--i:6" d="M0 384 C220 384 320 124 640 144"/></svg>
+        <svg class="curves curves--central" viewBox="0 0 640 420" aria-hidden="true" focusable="false" style="--grad:url(#g-dark)"><path pathLength="1" style="--i:0" d="M0 300 C220 300 320 40 640 60"/><path pathLength="1" style="--i:1" d="M0 313 C220 313 320 53 640 73"/><path pathLength="1" style="--i:2" d="M0 326 C220 326 320 66 640 86"/><path pathLength="1" style="--i:3" d="M0 339 C220 339 320 79 640 99"/></svg>
         <div class="info">
           <div class="top">
             <span class="icon" aria-hidden="true"><svg class="lucide"><use href="#i-headset"/></svg></span>
@@ -849,7 +888,7 @@ section{padding-block:var(--section);position:relative}
 
   <!-- ===== 7. LOCALIZAÇÃO ===== -->
   <section class="location" id="localizacao" aria-labelledby="loc-title">
-    <svg class="curves curves--loc draw draw-on-view" viewBox="0 0 640 420" aria-hidden="true" focusable="false"><path class="ca" pathLength="1" style="--i:0" d="M0 300 C220 300 320 40 640 60"/><path class="cb" pathLength="1" style="--i:1" d="M0 314 C220 314 320 54 640 74"/><path class="ca" pathLength="1" style="--i:2" d="M0 328 C220 328 320 68 640 88"/><path class="cb" pathLength="1" style="--i:3" d="M0 342 C220 342 320 82 640 102"/><path class="ca" pathLength="1" style="--i:4" d="M0 356 C220 356 320 96 640 116"/><path class="cb" pathLength="1" style="--i:5" d="M0 370 C220 370 320 110 640 130"/><path class="ca" pathLength="1" style="--i:6" d="M0 384 C220 384 320 124 640 144"/></svg>
+    <svg class="curves curves--loc draw draw-on-view" viewBox="0 0 640 420" aria-hidden="true" focusable="false" style="--grad:url(#g-light)"><path pathLength="1" style="--i:0" d="M0 330 C170 330 230 200 340 190 S540 70 640 80"/><path pathLength="1" style="--i:1" d="M0 342 C170 342 230 212 340 202 S540 82 640 92"/><path pathLength="1" style="--i:2" d="M0 354 C170 354 230 224 340 214 S540 94 640 104"/><path pathLength="1" style="--i:3" d="M0 366 C170 366 230 236 340 226 S540 106 640 116"/></svg>
     <div class="wrap">
       <figure class="facade reveal-img">
         <img src="fotos/fachada.jpg" width="1798" height="875" alt="Fachada da RastreOn ao entardecer, com o letreiro iluminado e a entrada de vidro" loading="lazy" decoding="async">
@@ -962,7 +1001,7 @@ section{padding-block:var(--section);position:relative}
       entries.forEach(function (entry) {
         if (entry.isIntersecting) { show(entry.target); io.unobserve(entry.target); }
       });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.01 });
     revealEls.forEach(function (el) { io.observe(el); });
     /* Garantia: nada fica invisível se o observador não disparar */
     window.addEventListener("load", function () {
