@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2E3B8A">
+<link rel="icon" type="image/png" href="logo.png">
+<title>RastreOn Atendimento</title>
+<meta name="description" content="Canais oficiais de atendimento da RastreOn: Central 24 horas, Suporte Operacional, Cobrança e Financeiro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: cabeçalho fixo branco · hero em duas colunas (mensagem + guia de setores) · Central 24h em destaque largo · três cards de WhatsApp · faixa semanal de horários · rodapé */
+:root{
+  color-scheme: light;
+  --white:#FFFFFF;
+  --navy:#2E3B8A;          /* azul institucional extraído da logomarca */
+  --navy-deep:#1F2866;
+  --royal:#1E4FD6;         /* azul royal para ações */
+  --royal-hover:#1840B3;
+  --sky:#EEF2FD;           /* azul suave */
+  --sky-2:#DCE4FA;
+  --mist:#F5F7FA;          /* cinza-claro de fundo */
+  --line:#E3E7EE;
+  --ink:#141A2E;
+  --muted:#5A6378;
+  --ok:#14804A;
+  --font-display:"Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --radius:14px;
+  --wrap:1160px;
+  --shadow:0 1px 2px rgba(20,26,46,.04), 0 8px 24px rgba(30,40,102,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font-body);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);line-height:1.15;margin:0;text-wrap:balance;letter-spacing:-.015em}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--royal);color:var(--white);padding:10px 16px;border-radius:8px;z-index:100}
+.skip:focus{left:16px}
+:focus-visible{outline:3px solid var(--royal);outline-offset:3px;border-radius:6px}
+
+/* ---------- Cabeçalho ---------- */
+.header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+.brand{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.brand img{height:46px;width:auto}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav a{display:block;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem;color:var(--muted);transition:color .2s,background .2s}
+.nav a:hover{color:var(--navy);background:var(--sky)}
+.nav a[aria-current="true"]{color:var(--navy);background:var(--sky)}
+.menu-btn{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:12px;background:var(--white);color:var(--navy);cursor:pointer;align-items:center;justify-content:center}
+.menu-btn svg{width:22px;height:22px}
+@media (max-width:760px){
+  .brand img{height:36px}
+  .header .wrap{min-height:66px}
+  .menu-btn{display:inline-flex}
+  .nav{position:absolute;left:0;right:0;top:100%;background:var(--white);border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(20,26,46,.08)}
+  .nav ul{flex-direction:column;gap:2px;padding:10px clamp(16px,4vw,32px) 16px}
+  .nav a{padding:14px 16px;border-radius:10px;font-size:1rem}
+  .nav[data-open="false"]{display:none}
+}
+
+/* ---------- Hero ---------- */
+.hero{background:linear-gradient(180deg,var(--sky) 0%,var(--white) 100%);border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,72px);align-items:center;padding-block:clamp(48px,8vw,96px)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--royal);border-radius:2px}
+.hero h1{font-size:clamp(2.3rem,5.4vw,3.9rem);font-weight:800;color:var(--navy-deep);margin-top:18px}
+.hero h1 span{color:var(--royal)}
+.hero p.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--muted);max-width:34ch;margin-top:18px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;align-items:center}
+
+.status{display:inline-flex;align-items:center;gap:10px;font-size:.9rem;color:var(--muted);font-weight:500}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex-shrink:0}
+.dot.on{background:var(--ok);box-shadow:0 0 0 4px rgba(20,128,74,.15)}
+
+.guide{background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:clamp(20px,3vw,28px)}
+.guide h2{font-size:1rem;font-weight:700;color:var(--navy-deep);letter-spacing:0}
+.guide p.sub{font-size:.88rem;color:var(--muted);margin-top:4px}
+.guide ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:4px}
+.guide a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:13px 14px;border-radius:12px;text-decoration:none;transition:background .2s}
+.guide a:hover{background:var(--mist)}
+.guide .need{font-size:.95rem;color:var(--ink);font-weight:500;min-width:0}
+.guide .tag{font-size:.78rem;font-weight:700;color:var(--navy);background:var(--sky);padding:5px 10px;border-radius:999px;white-space:nowrap}
+.guide li+li a{border-top:1px solid var(--line);border-radius:0}
+.guide li+li a:hover{border-radius:12px;border-top-color:transparent}
+
+/* ---------- Botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:12px;font-family:var(--font-body);font-weight:700;font-size:1rem;text-decoration:none;border:0;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;line-height:1.2;text-align:center}
+.btn svg{width:20px;height:20px;flex-shrink:0}
+.btn-primary{background:var(--royal);color:var(--white);box-shadow:0 6px 16px rgba(30,79,214,.25)}
+.btn-primary:hover{background:var(--royal-hover);transform:translateY(-1px);box-shadow:0 10px 22px rgba(30,79,214,.3)}
+.btn-call{background:var(--white);color:var(--navy-deep)}
+.btn-call:hover{background:var(--sky);transform:translateY(-1px)}
+.btn-block{width:100%}
+
+/* ---------- Seções ---------- */
+section{padding-block:clamp(56px,8vw,96px)}
+.section-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 40px;margin-bottom:clamp(28px,4vw,44px)}
+.section-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:700;color:var(--navy-deep);margin-top:12px}
+.section-head p{color:var(--muted);max-width:44ch}
+
+/* Central 24h */
+.central{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center;background:var(--navy);color:var(--white);border-radius:20px;padding:clamp(24px,4vw,44px);position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.central:hover{box-shadow:0 18px 40px rgba(31,40,102,.28);transform:translateY(-2px)}
+.central .top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.central .icon{background:rgba(255,255,255,.12);color:var(--white)}
+.central h3{font-size:clamp(1.4rem,2.4vw,1.75rem);font-weight:700}
+.badge-24{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--white);color:var(--navy-deep);font-weight:700;font-size:.92rem;padding:8px 14px;border-radius:999px}
+.badge-24 svg{width:16px;height:16px;color:var(--royal)}
+.central p.desc{color:rgba(255,255,255,.82);margin-top:16px;max-width:46ch}
+.central .side{position:relative;z-index:1;display:grid;gap:16px;background:var(--navy-deep);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:clamp(18px,3vw,26px)}
+.central .label{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.7)}
+.central .phone{font-family:var(--font-display);font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;user-select:all}
+.central .info{position:relative;z-index:1;min-width:0}
+.central .note{font-size:.85rem;color:rgba(255,255,255,.72)}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px);margin-top:clamp(16px,2vw,24px)}
+.card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,2.6vw,28px);transition:border-color .25s,box-shadow .25s,transform .25s;min-width:0}
+.card:hover{border-color:var(--sky-2);box-shadow:var(--shadow);transform:translateY(-3px)}
+.icon{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:var(--sky);color:var(--navy);flex-shrink:0}
+.icon svg{width:24px;height:24px}
+.card h3{font-size:1.2rem;font-weight:700;color:var(--navy-deep);margin-top:18px}
+.card .phone{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--ink);margin-top:6px;font-variant-numeric:tabular-nums;user-select:all}
+.card p.desc{color:var(--muted);margin-top:12px;font-size:.97rem}
+.hours{display:flex;align-items:flex-start;gap:10px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:.92rem;color:var(--ink);font-weight:500}
+.hours svg{width:18px;height:18px;color:var(--royal);flex-shrink:0;margin-top:2px}
+.card .btn{margin-top:auto}
+.card .spacer{flex:1;min-height:20px}
+.phone-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.copy{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--white);color:var(--muted);font:600 .78rem var(--font-body);padding:6px 10px;border-radius:8px;cursor:pointer;transition:color .2s,border-color .2s}
+.copy:hover{color:var(--navy);border-color:var(--sky-2)}
+.copy svg{width:14px;height:14px}
+.central .copy{background:transparent;border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.85)}
+.central .copy:hover{border-color:rgba(255,255,255,.6);color:var(--white)}
+
+/* Horários */
+.horarios{background:var(--mist);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hours-panel{background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.hours-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.hours-col{padding:clamp(22px,3vw,34px);min-width:0}
+.hours-col+.hours-col{border-left:1px solid var(--line)}
+.hours-col h3{font-size:1.1rem;font-weight:700;color:var(--navy-deep);display:flex;align-items:center;gap:12px}
+.hours-col h3 .icon{width:40px;height:40px;border-radius:10px}
+.hours-col h3 .icon svg{width:20px;height:20px}
+.hours-col p{margin-top:12px;color:var(--muted)}
+.hours-col strong{color:var(--ink);font-weight:600}
+.week{padding:clamp(18px,3vw,28px) clamp(22px,3vw,34px);border-top:1px solid var(--line);overflow-x:auto}
+.week table{width:100%;min-width:520px;border-collapse:separate;border-spacing:6px 8px;font-size:.85rem}
+.week th{font-weight:700;color:var(--muted);text-align:center;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+.week th[scope="row"]{text-align:left;text-transform:none;letter-spacing:0;font-size:.88rem;color:var(--ink);white-space:nowrap;padding-right:8px}
+.week td{text-align:center;border-radius:8px;padding:9px 4px;font-weight:600;font-variant-numeric:tabular-nums}
+.week td.open{background:var(--sky);color:var(--navy)}
+.week td.full{background:var(--navy);color:var(--white)}
+.week td.closed{background:var(--mist);color:#7A8296;font-weight:500}
+.alert{display:flex;gap:14px;align-items:flex-start;background:var(--sky);border-top:1px solid var(--sky-2);padding:18px clamp(22px,3vw,34px);color:var(--navy-deep);font-weight:500}
+.alert svg{width:22px;height:22px;flex-shrink:0;color:var(--royal);margin-top:1px}
+.alert a{font-weight:700;color:var(--royal);white-space:nowrap}
+
+/* Rodapé */
+.footer{padding-block:40px;background:var(--white)}
+.footer .wrap{margin-top:16px}
+.footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+.footer img{height:34px;width:auto}
+.footer p{color:var(--muted);font-size:.92rem}
+.footer .tagline{color:var(--ink);font-weight:600}
+.footer .fcol{display:grid;gap:12px}
+
+/* ---------- Curvas paralelas (identidade gráfica) ---------- */
+:root{--curve-a:rgba(46,59,138,.22);--curve-b:rgba(30,79,214,.14)}
+.has-curves{position:relative;overflow:hidden;isolation:isolate}
+.curves{position:absolute;pointer-events:none;z-index:-1;overflow:visible}
+.curves use{fill:none;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.curves--hero{right:-6%;bottom:-8%;width:min(62%,760px);height:auto;aspect-ratio:640/420}
+.curves--hours{left:-180px;top:12%;width:520px;height:auto;aspect-ratio:640/420;transform:scaleX(-1)}
+.curves--loc{right:-200px;bottom:-150px;width:520px;height:auto;aspect-ratio:640/420}
+.curves--central{right:-80px;bottom:-90px;width:520px;height:auto;aspect-ratio:640/420;z-index:0;--curve-a:rgba(255,255,255,.16);--curve-b:rgba(173,196,255,.14)}
+.drift{animation:drift 22s ease-in-out infinite alternate}
+.curves--hours.drift{animation-name:drift-flip}
+@keyframes drift{from{translate:0 0}to{translate:-18px 10px}}
+@keyframes drift-flip{from{translate:0 0}to{translate:18px 10px}}
+@media (max-width:860px){
+  .curves--hero{width:120%;right:-30%;bottom:-4%;opacity:.7}
+  .curves--hours{display:none}
+  .curves--loc{right:-160px;bottom:-60px;width:420px;opacity:.8}
+}
+.footer-curve{display:block;width:100%;height:56px;color:var(--sky-2)}
+.footer-curve path{fill:none;stroke:currentColor;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.footer-curve path:nth-child(2){stroke:var(--curve-a)}
+
+/* ---------- Entrada animada ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.brand img{animation:fade .6s ease-out both}
+.a1{animation:rise .7s cubic-bezier(.2,.7,.2,1) .12s both}
+.a2{animation:rise .7s cubic-bezier(.2,.7,.2,1) .26s both}
+.a3{animation:rise .7s cubic-bezier(.2,.7,.2,1) .4s both}
+.a4{animation:rise .7s cubic-bezier(.2,.7,.2,1) .54s both}
+.a5{animation:rise .8s cubic-bezier(.2,.7,.2,1) .66s both}
+.js .reveal{opacity:0;transform:translateY(18px)}
+.js .reveal.in{opacity:1;transform:none;transition:opacity .6s ease-out var(--d,0ms),transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms),border-color .25s,box-shadow .25s}
+.js .card.reveal.in:hover{transform:translateY(-4px);transition-delay:0ms}
+.js .central.reveal.in:hover{transform:translateY(-3px);transition-delay:0ms}
+
+/* ---------- Microinterações dos ícones ---------- */
+.ico-phone{transform-origin:50% 50%}
+.btn:hover .ico-phone,.alert a:hover .ico-phone,.central:hover .icon-call{animation:ring .6s ease-in-out}
+@keyframes ring{0%,100%{rotate:0deg}20%{rotate:-12deg}40%{rotate:10deg}60%{rotate:-6deg}80%{rotate:4deg}}
+.wa{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.btn:hover .wa{transform:scale(1.14) rotate(-6deg)}
+.ico-pin{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.btn:hover .ico-pin{animation:pin .7s ease-in-out}
+@keyframes pin{0%,100%{transform:translateY(0)}45%{transform:translateY(-4px)}70%{transform:translateY(1px)}}
+.clock .hand{transform-box:view-box;transform-origin:12px 12px;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.card:hover .clock .hand,.hours-col:hover .clock .hand,.central:hover .clock .hand{transform:rotate(360deg)}
+.icon{transition:background .3s,color .3s,transform .3s}
+.card:hover .icon{background:var(--royal);color:var(--white);transform:translateY(-2px)}
+.card:hover .btn-primary{background:var(--royal-hover)}
+
+/* ---------- Localização ---------- */
+.location{background:linear-gradient(180deg,var(--white) 0%,var(--sky) 100%)}
+.location .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.facade{position:relative;margin:0;border-radius:20px;overflow:hidden;background:var(--sky-2);box-shadow:0 2px 4px rgba(20,26,46,.05),0 24px 48px -12px rgba(31,40,102,.28);aspect-ratio:1798/875;max-width:100%}
+.facade::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);pointer-events:none}
+.facade img{width:100%;height:100%;object-fit:contain;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.facade:hover img{transform:scale(1.02)}
+.js .facade.reveal{transform:translateY(24px)}
+.js .facade.reveal.in{transform:none;transition:opacity .8s ease-out,transform .8s cubic-bezier(.2,.7,.2,1)}
+.loc-info{min-width:0}
+.loc-info h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:700;color:var(--navy-deep);margin-top:12px}
+.loc-info p{color:var(--muted);margin-top:14px;max-width:38ch;font-size:1.05rem}
+.btn-maps{margin-top:28px;letter-spacing:.04em;font-size:.92rem;padding:0 22px;min-height:58px}
+.btn-maps .ico-arrow{width:16px;height:16px;opacity:.75;transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.btn-maps:hover .ico-arrow{transform:translate(3px,-3px);opacity:1}
+.btn-maps:active{transform:translateY(0) scale(.99)}
+.curves--loc2{left:-220px;bottom:-160px;width:520px;height:auto;aspect-ratio:640/420;transform:scaleX(-1)}
+.curves--loc2.drift{animation-name:drift-flip}
+@media (max-width:860px){
+  .location .wrap{grid-template-columns:1fr}
+  .facade{border-radius:16px}
+  .btn-maps{width:100%;font-size:.84rem;letter-spacing:.02em;padding:0 14px}
+  .curves--loc2{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .js .reveal,.js .facade.reveal{opacity:1;transform:none}
+  .drift{animation:none}
+}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--navy-deep);color:var(--white);padding:12px 18px;border-radius:10px;font-weight:600;font-size:.92rem;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:80}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:980px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid .card:last-child{grid-column:1/-1}
+}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .central{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .hours-cols{grid-template-columns:1fr}
+  .hours-col+.hours-col{border-left:0;border-top:1px solid var(--line)}
+  .hero-actions .btn{width:100%}
+  .footer .wrap{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js");</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="curve-set" viewBox="0 0 640 420">
+<path d="M0 300 C220 300 320 40 640 60" style="stroke:var(--curve-a)"/>
+<path d="M0 314 C220 314 320 54 640 74" style="stroke:var(--curve-b)"/>
+<path d="M0 328 C220 328 320 68 640 88" style="stroke:var(--curve-a)"/>
+<path d="M0 342 C220 342 320 82 640 102" style="stroke:var(--curve-b)"/>
+<path d="M0 356 C220 356 320 96 640 116" style="stroke:var(--curve-a)"/>
+<path d="M0 370 C220 370 320 110 640 130" style="stroke:var(--curve-b)"/>
+<path d="M0 384 C220 384 320 124 640 144" style="stroke:var(--curve-a)"/>
+<path d="M0 398 C220 398 320 138 640 158" style="stroke:var(--curve-b)"/>
+<path d="M0 412 C220 412 320 152 640 172" style="stroke:var(--curve-a)"/>
+</symbol></defs></svg>
+
+<a class="skip" href="#canais">Ir para os canais de atendimento</a>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="RastreOn — início">
+      <img src="logo.png" alt="RastreOn — Rastreamento e Monitoramento" width="900" height="238">
+    </a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="menu" data-open="false" aria-label="Menu principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#canais">Canais de atendimento</a></li>
+        <li><a href="#horarios">Horários</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero has-curves" id="inicio" aria-labelledby="hero-title" style="padding-block:0">
+    <svg class="curves curves--hero drift" viewBox="0 0 640 420" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><use href="#curve-set"/></svg>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow a1">Atendimento RastreOn</span>
+        <h1 id="hero-title" class="a1">Fale com a <span>RastreOn</span></h1>
+        <p class="lead a2">Encontre o canal correto para sua necessidade e entre em contato com nossa equipe.</p>
+        <div class="hero-actions a3">
+          <a class="btn btn-primary" href="#canais">
+            Ver canais de atendimento
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <span class="status" id="status" aria-live="polite"><span class="dot" id="status-dot"></span><span id="status-text">Central 24 horas disponível agora</span></span>
+        </div>
+      </div>
+
+      <aside class="guide a4" aria-labelledby="guide-title">
+        <h2 id="guide-title">Qual setor procurar?</h2>
+        <p class="sub">Escolha pelo assunto e vá direto ao contato certo.</p>
+        <ul>
+          <li><a href="#central-24h"><span class="need">Ligação a qualquer hora do dia</span><span class="tag">Central 24h</span></a></li>
+          <li><a href="#suporte"><span class="need">Suporte e auxílio com os serviços</span><span class="tag">Suporte</span></a></li>
+          <li><a href="#cobranca"><span class="need">Boletos, cobranças e distrato</span><span class="tag">Cobrança</span></a></li>
+          <li><a href="#financeiro"><span class="need">Negociação e acordos de débitos</span><span class="tag">Financeiro</span></a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="canais" aria-labelledby="canais-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Contatos oficiais</span>
+          <h2 id="canais-title">Canais de atendimento</h2>
+        </div>
+        <p>Ligue para a Central 24 horas ou converse pelo WhatsApp com o setor responsável.</p>
+      </div>
+
+      <article class="central reveal" id="central-24h" aria-labelledby="central-title">
+        <svg class="curves curves--central drift" viewBox="0 0 640 420" aria-hidden="true" focusable="false"><use href="#curve-set"/></svg>
+        <div class="info">
+          <div class="top">
+            <span class="icon" aria-hidden="true">
+              <svg class="icon-call" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 15a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2zM3 15a2 2 0 0 0 2 2h1v-6H5a2 2 0 0 0-2 2z"/><path d="M18 17v1a3 3 0 0 1-3 3h-3"/></svg>
+            </span>
+            <h3 id="central-title">Central 24 horas</h3>
+          </div>
+          <span class="badge-24">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="clock"><circle cx="12" cy="12" r="9"/><path class="hand" d="M12 7v5l3 2"/></svg>
+            Único contato disponível 24 horas por dia
+          </span>
+          <p class="desc">Central de atendimento para ligações diretas pela operadora.</p>
+        </div>
+        <div class="side">
+          <span class="label">Telefone</span>
+          <div class="phone-row">
+            <span class="phone">(92) 99136-7474</span>
+            <button class="copy" type="button" data-copy="(92) 99136-7474" aria-label="Copiar o número da Central 24 horas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>Copiar
+            </button>
+          </div>
+          <a class="btn btn-call btn-block" href="tel:+5592991367474">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ico-phone"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            Ligar para a Central 24h
+          </a>
+          <span class="note">Atendimento somente por ligação telefônica.</span>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card reveal" style="--d:0ms" id="suporte" aria-labelledby="suporte-title">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg>
+          </span>
+          <h3 id="suporte-title">Suporte Operacional</h3>
+          <div class="phone-row">
+            <span class="phone">(92) 98400-1344</span>
+            <button class="copy" type="button" data-copy="(92) 98400-1344" aria-label="Copiar o número do Suporte Operacional"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>Copiar</button>
+          </div>
+          <p class="desc">Atendimento para suporte operacional e auxílio relacionado aos serviços da RastreOn.</p>
+          <p class="hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="clock"><circle cx="12" cy="12" r="9"/><path class="hand" d="M12 7v5l3 2"/></svg>Segunda a sexta-feira, das 8h às 17h.</p>
+          <span class="spacer"></span>
+          <a class="btn btn-primary btn-block" href="https://wa.me/5592984001344" target="_blank" rel="noopener noreferrer">
+            <svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41z"/></svg>
+            Falar com o Suporte
+          </a>
+        </article>
+
+        <article class="card reveal" style="--d:120ms" id="cobranca" aria-labelledby="cobranca-title">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h16v20l-3-2-3 2-2-2-2 2-3-2-3 2z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+          </span>
+          <h3 id="cobranca-title">Setor de Cobrança</h3>
+          <div class="phone-row">
+            <span class="phone">(92) 98484-3778</span>
+            <button class="copy" type="button" data-copy="(92) 98484-3778" aria-label="Copiar o número do Setor de Cobrança"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>Copiar</button>
+          </div>
+          <p class="desc">Atendimento para envio de boletos, informações sobre cobranças e solicitação de distrato de contrato.</p>
+          <p class="hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="clock"><circle cx="12" cy="12" r="9"/><path class="hand" d="M12 7v5l3 2"/></svg>Segunda a sexta-feira, das 8h às 17h.</p>
+          <span class="spacer"></span>
+          <a class="btn btn-primary btn-block" href="https://wa.me/5592984843778" target="_blank" rel="noopener noreferrer">
+            <svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41z"/></svg>
+            Falar com a Cobrança
+          </a>
+        </article>
+
+        <article class="card reveal" style="--d:240ms" id="financeiro" aria-labelledby="financeiro-title">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>
+          </span>
+          <h3 id="financeiro-title">Setor Financeiro</h3>
+          <div class="phone-row">
+            <span class="phone">(92) 98120-8375</span>
+            <button class="copy" type="button" data-copy="(92) 98120-8375" aria-label="Copiar o número do Setor Financeiro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>Copiar</button>
+          </div>
+          <p class="desc">Atendimento para negociação e realização de acordos relacionados a débitos.</p>
+          <p class="hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="clock"><circle cx="12" cy="12" r="9"/><path class="hand" d="M12 7v5l3 2"/></svg>Segunda a sexta-feira, das 8h às 17h.</p>
+          <span class="spacer"></span>
+          <a class="btn btn-primary btn-block" href="https://wa.me/5592981208375" target="_blank" rel="noopener noreferrer">
+            <svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41z"/></svg>
+            Falar com o Financeiro
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="horarios has-curves" id="horarios" aria-labelledby="horarios-title">
+    <svg class="curves curves--hours drift" viewBox="0 0 640 420" aria-hidden="true" focusable="false"><use href="#curve-set"/></svg>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Quando atendemos</span>
+          <h2 id="horarios-title">Horários de atendimento</h2>
+        </div>
+      </div>
+
+      <div class="hours-panel reveal">
+        <div class="hours-cols">
+          <div class="hours-col">
+            <h3><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Atendimento dos setores administrativos</h3>
+            <p><strong>Segunda a sexta-feira, das 8h às 17h.</strong></p>
+            <p>Suporte Operacional, Setor de Cobrança e Setor Financeiro, pelo WhatsApp.</p>
+          </div>
+          <div class="hours-col">
+            <h3><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="clock"><circle cx="12" cy="12" r="9"/><path class="hand" d="M12 7v5l3 2"/></svg></span>Central telefônica 24 horas</h3>
+            <p><strong>Disponível todos os dias, durante 24 horas, exclusivamente pelo número (92) 99136-7474.</strong></p>
+            <p>Atendimento por ligação telefônica.</p>
+          </div>
+        </div>
+
+        <div class="week" role="region" aria-label="Resumo semanal dos horários" tabindex="0">
+          <table>
+            <caption class="sr-only" style="position:absolute;left:-9999px">Resumo semanal dos horários de atendimento</caption>
+            <thead>
+              <tr><td></td><th scope="col">Seg</th><th scope="col">Ter</th><th scope="col">Qua</th><th scope="col">Qui</th><th scope="col">Sex</th><th scope="col">Sáb</th><th scope="col">Dom</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Setores administrativos</th><td class="open">8h–17h</td><td class="open">8h–17h</td><td class="open">8h–17h</td><td class="open">8h–17h</td><td class="open">8h–17h</td><td class="closed">Fechado</td><td class="closed">Fechado</td></tr>
+              <tr><th scope="row">Central 24 horas</th><td class="full">24h</td><td class="full">24h</td><td class="full">24h</td><td class="full">24h</td><td class="full">24h</td><td class="full">24h</td><td class="full">24h</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="alert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span>Fora do horário comercial, somente a Central 24 horas realiza atendimento, pelo número <a href="tel:+5592991367474">(92) 99136-7474</a>.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="location has-curves" id="localizacao" aria-labelledby="loc-title">
+    <svg class="curves curves--loc drift" viewBox="0 0 640 420" aria-hidden="true" focusable="false"><use href="#curve-set"/></svg>
+    <svg class="curves curves--loc2 drift" viewBox="0 0 640 420" aria-hidden="true" focusable="false"><use href="#curve-set"/></svg>
+    <div class="wrap">
+      <figure class="facade reveal">
+        <img src="fotos/fachada.jpg" width="1798" height="875" alt="Fachada da RastreOn ao entardecer, com o letreiro iluminado e a entrada de vidro" loading="lazy" decoding="async">
+      </figure>
+      <div class="loc-info reveal" style="--d:140ms">
+        <span class="eyebrow">Nossa localização</span>
+        <h2 id="loc-title">Venha conhecer a RastreOn</h2>
+        <p>Estamos prontos para receber você. Confira nossa localização e saiba como chegar até nós.</p>
+        <a class="btn btn-primary btn-maps" href="https://maps.app.goo.gl/4XkwssLpeSdNnPch6" target="_blank" rel="noopener noreferrer">
+          <svg class="ico-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span>VER LOCALIZAÇÃO NO GOOGLE MAPS</span>
+          <svg class="ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" style="padding-top:0">
+  <svg class="footer-curve" viewBox="0 0 1200 56" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 40 C300 40 420 10 700 14 S1050 34 1200 8"/><path d="M0 48 C300 48 420 18 700 22 S1050 42 1200 16"/></svg>
+  <div class="wrap">
+    <div class="fcol">
+      <img src="logo.png" alt="RastreOn" width="900" height="238" loading="lazy">
+      <p class="tagline">RastreOn — Tecnologia e segurança para você.</p>
+    </div>
+    <p>© <span id="year">2026</span> RastreOn. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* Menu mobile */
+  var btn = document.getElementById("menu-btn");
+  var nav = document.getElementById("menu");
+  function setMenu(open) {
+    nav.setAttribute("data-open", open ? "true" : "false");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  }
+  btn.addEventListener("click", function () {
+    setMenu(nav.getAttribute("data-open") !== "true");
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") setMenu(false);
+  });
+
+  /* Rolagem suave para links internos */
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var id = link.getAttribute("href").slice(1);
+      var target = id && document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      setMenu(false);
+      var header = document.querySelector(".header");
+      var offset = id === "inicio" ? 0 : header.offsetHeight + 12;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: Math.max(top, 0), behavior: reduce ? "auto" : "smooth" });
+    });
+  });
+
+  /* Item ativo no menu */
+  var links = nav.querySelectorAll("a");
+  var sections = ["inicio", "canais", "horarios", "localizacao"].map(function (id) { return document.getElementById(id); });
+  function updateActive() {
+    var pos = window.pageYOffset + 140;
+    var current = "inicio";
+    sections.forEach(function (s) { if (s && s.offsetTop <= pos) current = s.id; });
+    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 4) current = "localizacao";
+    links.forEach(function (a) {
+      if (a.getAttribute("href") === "#" + current) a.setAttribute("aria-current", "true");
+      else a.removeAttribute("aria-current");
+    });
+  }
+  window.addEventListener("scroll", updateActive, { passive: true });
+  updateActive();
+
+  /* Copiar número */
+  var toast = document.getElementById("toast");
+  var toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 2200);
+  }
+  function selectText(el) {
+    var range = document.createRange();
+    range.selectNodeContents(el);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+  document.querySelectorAll("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var value = b.getAttribute("data-copy");
+      var phoneEl = b.parentElement.querySelector(".phone");
+      var fallback = function () {
+        if (phoneEl) selectText(phoneEl);
+        showToast("Número selecionado. Copie com Ctrl+C ou segure para copiar.");
+      };
+      try {
+        navigator.clipboard.writeText(value).then(function () {
+          showToast("Número " + value + " copiado.");
+        }, fallback);
+      } catch (err) { fallback(); }
+    });
+  });
+
+  /* Status do atendimento (horário de Manaus) */
+  try {
+    var parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Manaus", weekday: "short", hour: "numeric", minute: "numeric", hour12: false
+    }).formatToParts(new Date());
+    var get = function (t) { var p = parts.find(function (x) { return x.type === t; }); return p ? p.value : ""; };
+    var day = get("weekday");
+    var minutes = (parseInt(get("hour"), 10) % 24) * 60 + parseInt(get("minute"), 10);
+    var weekday = ["Mon", "Tue", "Wed", "Thu", "Fri"].indexOf(day) !== -1;
+    var open = weekday && minutes >= 8 * 60 && minutes < 17 * 60;
+    document.getElementById("status-dot").classList.add("on");
+    document.getElementById("status-text").textContent = open
+      ? "Setores administrativos em horário de atendimento"
+      : "Agora, somente a Central 24 horas está atendendo";
+  } catch (err) { /* mantém o texto padrão */ }
+
+  /* Entrada dos cards e blocos em sequência */
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
